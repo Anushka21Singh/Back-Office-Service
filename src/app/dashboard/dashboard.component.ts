@@ -22,15 +22,32 @@ export class DashboardComponent implements OnInit {
   //name="Anushka";
   //name: string;
   members: Users;
+public AdminRole=false;;  public OperatorRole = false;
+
   constructor(private auth:AuthService, private Route:Router, private dashboard: DashboardService) { 
-    
-    const user= localStorage.getItem("name");
-    
-    console.log("inside dashboard"+name);
+    this.OperatorRole=false;
+    this.AdminRole=false;
+    const name= localStorage.getItem("name");
+    const role= localStorage.getItem("role");
+    this.initialF(role);
+    console.log("inside dashboard"+name+role);
   } 
 
   ngOnInit() {
   
+  }
+  initialF(role)
+  {
+  if(role=="Admin")
+  {
+    this.AdminRole=true;
+    console.log("Admin if"+ this.AdminRole);
+  }
+  else
+  {
+    this.OperatorRole=true;
+  }
+    
   }
 
   logOut()

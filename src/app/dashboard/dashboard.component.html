@@ -13,12 +13,12 @@
 
     <body>
     
-    <div class="sidenav">
+    <!-- <div class="sidenav">
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#clients">Clients</a>
       <a href="#contact">Contact</a>
-    </div>
+    </div> -->
     
     
    
@@ -38,7 +38,13 @@
   <button type="button" name="search" (click)="search(seach.value)">search</button>
 
 </div> -->
+<div *ngIf="AdminRole">
+  <img src="whitefin.png" height="100" width="100">  Admin
+</div>
 
+<div *ngIf="OperatorRole">
+  <img src="whitefin.png" height="100" width="100">  Operator
+</div>
 
 <form  (ngSubmit)="searchV(y)" #y="ngForm">
   <div class="form-group"> 

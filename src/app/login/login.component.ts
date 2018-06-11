@@ -9,6 +9,8 @@ import { Data } from '../../data';
 import {LOCAL_STORAGE, StorageServiceModule} from 'angular-webstorage-service'
 import { SESSION_STORAGE, StorageService } from 'angular-webstorage-service';
 import { Session } from 'protractor';
+import { HttpResponse } from 'selenium-webdriver/http';
+import { Response, ResponseOptions } from '@angular/http';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +19,7 @@ import { Session } from 'protractor';
   providers:[LoginServiceService,AuthGuard]
 })
 export class LoginComponent implements OnInit {
- 
-  u: Data;
-  members : Users;
+   members: any;
   constructor(private loginData: LoginServiceService, private router:Router,private auth: AuthService ) { 
     console.log("Inside Constructor");
     //this.getAll();
@@ -36,23 +36,23 @@ export class LoginComponent implements OnInit {
 
     this.loginData.getAll().subscribe(res => {
       
-    this.members = res;
-    console.log(res);
+    this.members =res;
+    console.log(this.members[0].Firstname);
     console.log(" returned Inside component getAllFunction");
-     console.log(this.members[0].username);
+     console.log(res[0].Username);
       
      for(var i = 0;; i++){
-      console.log(this.members[i].role+"   "+"role");
-      console.log(this.members[i].username+"   "+"username");
-       if(this.members[i].username == username && this.members[i].password == password && this.members.role== role)
+     // console.log(this.members[i].role+"   "+"role");
+      console.log(this.members[i].Username+"   "+"username");
+       if(this.members[i].Username == username && this.members[i].Password == password && this.members[i].Role== role)
        {
-         this.members.username=username;
         // this.u.username=username;
         console.log("if Conditional.");
         this.auth.setLogedIn();
         console.log("set: "+this.auth.getLoggedIn());
         sessionStorage.setItem("value","true");
-        localStorage.setItem("name",this.members[i].firstname);
+        localStorage.setItem("name",this.members[i].firstName);
+        localStorage.setItem("Role",this.members[i].role);
         console.log("before dashboard");
               this.router.navigate(['dashboard']);
               break;

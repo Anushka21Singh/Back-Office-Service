@@ -1,7 +1,8 @@
 export class Users{
-    role : String;
-    username: String;
-    password : String;
-    firstName : String;
-    lastName: String;
+     Id: Number;
+    Username: String;
+    Password : String;
+    Firstname : String;
+    Lastname: String;
+    Role : String;
 }

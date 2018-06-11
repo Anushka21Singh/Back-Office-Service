@@ -12,7 +12,7 @@ import { AuthService } from '../auth.service';
 export class LoginServiceService {
 
 
-  members : Users;
+  
   constructor(private _http : Http, private auth: AuthService) { 
     console.log("inside service login constructor");
   
@@ -27,7 +27,8 @@ export class LoginServiceService {
        console.log("Inside http");
       //console.log( res.toString);
       console.log(" Returned Inside  http");
-
+     
+      
       return res.json()
      
     }

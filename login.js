@@ -17,11 +17,11 @@ app.get("/getAll",(req,res)=>
 
     console.log("gotch yaa !!");
     //res.send("got the post...!!");
-     var got=result.Username;
-     console.log(got);
+    var got=result.Username;
+      console.log(got);
 
     //res.send("Username"+ got);
-    //console.log(result);
+    console.log(result);
     //console.log("username"+result.username);
     res.json(result);
 });
