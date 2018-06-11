@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  loginUsers(username,password) {
+  loginUsers(username,password,role) {
     console.log("Inside component getAllFunction");
    
     this.loginData.getAll().subscribe(res => {
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
      for(var i = 0;; i++){
 
       console.log(this.members[i].username+"   "+username);
-       if(this.members[i].username == username && this.members[i].password == password )
+       if(this.members[i].username == username && this.members[i].password == password && this.members.role== role)
        {
          this.members.username=username;
         // this.u.username=username;
@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit {
     // this.members.password=x.value.psw;
      console.log("password"+x.value.psw);
     // this.loginData.addData(this.members.username,this.members.password);
-     this.loginUsers( x.value.uname,x.value.psw );
+     this.loginUsers( x.value.uname,x.value.psw,x.value.role);
 
 //     if( x.value.uname == 'admin' && x.value.psw == 'admin')  
 // {
