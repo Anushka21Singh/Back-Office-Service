@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
 
   loginUsers(username,password,role) {
     console.log("Inside component getAllFunction");
-   
+    console.log(role);
+
     this.loginData.getAll().subscribe(res => {
       
     this.members = res;
@@ -41,8 +42,8 @@ export class LoginComponent implements OnInit {
      console.log(this.members[0].username);
       
      for(var i = 0;; i++){
-
-      console.log(this.members[i].username+"   "+username);
+      console.log(this.members[i].role+"   "+"role");
+      console.log(this.members[i].username+"   "+"username");
        if(this.members[i].username == username && this.members[i].password == password && this.members.role== role)
        {
          this.members.username=username;
@@ -51,7 +52,7 @@ export class LoginComponent implements OnInit {
         this.auth.setLogedIn();
         console.log("set: "+this.auth.getLoggedIn());
         sessionStorage.setItem("value","true");
-        localStorage.setItem("name",username);
+        localStorage.setItem("name",this.members[i].firstname);
         console.log("before dashboard");
               this.router.navigate(['dashboard']);
               break;
@@ -68,7 +69,7 @@ export class LoginComponent implements OnInit {
     this.loginData.getAll().subscribe(res => {
     this.members = res;
     console.log(res);
-    console.log(" returned Inside component getAllFunction");
+    console.log(" returned Inside  component getAllFunction");
      console.log(this.members[0].username);
     });
   }

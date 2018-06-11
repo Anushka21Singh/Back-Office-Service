@@ -10,15 +10,16 @@ app.get("/getAll",(req,res)=>
 {
     console.log("inside login.js getAll");
 
-    let sql =" select * from sample";
+    let sql ="select * from users";
     let query = con.query(sql,(err,result)=>
 {
     if(err) throw err;
 
     console.log("gotch yaa !!");
     //res.send("got the post...!!");
-     var got=result.username;
- 
+     var got=result.Username;
+     console.log(got);
+
     //res.send("Username"+ got);
     //console.log(result);
     //console.log("username"+result.username);
@@ -34,7 +35,7 @@ app.post('/addpost',(req,res)=>
   var u = req.query.username;
   console.log("Inside login  :"+u+pw+"request"+req+"response"+req.body);
  
-    let sql='Insert into sample(username,password) VALUES ("'+req.body.username+'","'+req.body.password+'")';
+    let sql='Insert into users(username,password) VALUES ("'+req.body.username+'","'+req.body.password+'")';
  
     let query= con.query(sql,(err,result)=>
 {

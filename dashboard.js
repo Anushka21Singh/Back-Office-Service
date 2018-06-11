@@ -11,7 +11,7 @@ app.get("/search",(req,res)=>
     var value = req.query.value;
     console.log("inside dashboard.js search"+value);
     console.log("inside dashboard.js search2");
-    let sql =" select * from sample where password='"+value+"'";
+    let sql =" select * from users where password='"+value+"'";
     let query = con.query(sql,(err,result)=>
 {
     if(err) throw err;
