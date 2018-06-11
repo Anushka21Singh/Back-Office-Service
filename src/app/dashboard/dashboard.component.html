@@ -1,0 +1,70 @@
+
+
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      </head> 
+
+    <body>
+    
+    <div class="sidenav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#clients">Clients</a>
+      <a href="#contact">Contact</a>
+    </div>
+    
+    
+   
+    
+
+
+
+
+<p>
+  dashboard works!
+</p>
+{{user}}
+<button type="button" name="logout" (click)="logOut()">logout</button>
+<!-- <div>
+  <input  #search class="form-control" type="text"  name="search" required>kkkkkk
+
+  <button type="button" name="search" (click)="search(seach.value)">search</button>
+
+</div> -->
+
+
+<form  (ngSubmit)="searchV(y)" #y="ngForm">
+  <div class="form-group"> 
+
+    <label for="uname"><b>Search</b></label>
+    <input ngModel #search class="form-control" type="text"  name="search" required>
+</div>
+
+    <div class="form-group text-center">
+
+    <button class="btn btn-primary"  type="submit">search</button>
+    </div>
+
+</form>
+<table border='1'>  
+  
+       
+  <tr *ngFor="let kk of members">  
+       
+    <td>password: {{kk.password}}</td>  <br><br>
+    <td>username : {{kk.username}}</td>  
+
+  </tr>  
+</table>  
+</body>
+</html>
+
+
+

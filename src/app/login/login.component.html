@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+h1   {color: #031b42;}
+p    {color: red;}
+</style>
+<body>
+
+
+
+<div class="col-lg-4"></div>
+<div class="col-lg-4 col-md-4 formC"  >
+
+<form (ngSubmit)="onSubmit(x)" #x="ngForm">
+  <!-- <div class="imgcontainer text-center">
+    <img src="../assets/images/login.PNG" alt="Avatar" class="avatar" style="width:80px;height:80px;">
+  </div> -->
+
+ <!-- <div class="form-group"> 
+
+    <label for="Fname"><b>First Name</b></label>
+    <input [(ngModel)]="Fname" class="form-control" type="text" placeholder="Enter Firstname" name="Fname" required>
+
+     </div>
+
+ <div class="form-group"> 
+
+     <label for="Lname"><b>Last Name</b></label>
+    <input [(ngModel)]="Lname" class="form-control"  type="text" placeholder="Enter Lasstname" name="Lname" required>
+</div>
+
+ <div class="form-group"> 
+
+    <label for="Email"><b>Email</b></label>
+    <input [(ngModel)]="Email" class="form-control"  type="text" placeholder="Enter Email" name="Email" required>
+</div> -->
+
+ <div class="form-group"> 
+
+    <label for="uname"><b>Username</b></label>
+    <input ngModel #uname class="form-control" type="text" placeholder="Enter Username" name="uname" required>
+</div>
+
+ <div class="form-group"> 
+
+    <label for="psw"><b>Password</b></label>
+    <input ngModel #pword class="form-control"  type="password" placeholder="Enter Password" name="psw" required>
+    </div>
+
+    <div class="form-group text-center">
+
+    <button class="btn btn-primary"  type="submit">Login</button>
+    </div>
+  </form> 
+    <h1>Our Mysql is Working!</h1>
+
+    <table border='1'>  
+  
+       
+      <tr *ngFor="let kk of members">  
+           
+        <td>password: {{kk.password}}</td>  <br>
+        <td>username : {{kk.username}}</td>  
+   
+      </tr>  
+    </table>  
+
+
+
+
+ </div>
+
+</body>
+</html>
+
