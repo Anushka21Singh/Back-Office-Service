@@ -19,8 +19,6 @@ import { NgModule } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  //name="Anushka";
-  //name: string;
   members: Users;
 public AdminRole=false;;  public OperatorRole = false;
 
@@ -28,7 +26,7 @@ public AdminRole=false;;  public OperatorRole = false;
     this.OperatorRole=false;
     this.AdminRole=false;
     const name= localStorage.getItem("name");
-    const role= localStorage.getItem("role");
+    const role= localStorage.getItem("Role");
     this.initialF(role);
     console.log("inside dashboard"+name+role);
   } 
@@ -46,6 +44,8 @@ public AdminRole=false;;  public OperatorRole = false;
   else
   {
     this.OperatorRole=true;
+    console.log("Operator if"+ this.OperatorRole);
+
   }
     
   }
@@ -53,6 +53,7 @@ public AdminRole=false;;  public OperatorRole = false;
   logOut()
   {
     console.log("inside logout");
+    localStorage.clear();
     sessionStorage.setItem("name","false");
     this.Route.navigate(['login']);
 

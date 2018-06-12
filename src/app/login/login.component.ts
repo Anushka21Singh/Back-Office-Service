@@ -51,8 +51,8 @@ export class LoginComponent implements OnInit {
         this.auth.setLogedIn();
         console.log("set: "+this.auth.getLoggedIn());
         sessionStorage.setItem("value","true");
-        localStorage.setItem("name",this.members[i].firstName);
-        localStorage.setItem("Role",this.members[i].role);
+        localStorage.setItem("name",this.members[i].Firstname);
+        localStorage.setItem("Role",this.members[i].Role);
         console.log("before dashboard");
               this.router.navigate(['dashboard']);
               break;
