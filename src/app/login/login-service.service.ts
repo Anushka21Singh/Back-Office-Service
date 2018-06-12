@@ -19,10 +19,15 @@ export class LoginServiceService {
   }
     
 
-  getAll(){
-    console.log("Inside service getAll");
+  getAll(username,password){
+    let params: URLSearchParams = new URLSearchParams();
+    params.set("username", username);
+    params.set("password", password);
+    let requestOptions = new RequestOptions();
+    requestOptions.search = params;
+    console.log("inside login service getAll");
 
-    return this._http.get('login/getAll')
+    return this._http.get('login/getAll', requestOptions)
     .map(res =>{ 
        console.log("Inside http");
       //console.log( res.toString);

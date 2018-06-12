@@ -36,7 +36,7 @@ public AdminRole=false;;  public OperatorRole = false;
   }
   initialF(role)
   {
-  if(role=="Admin")
+  if(role=="admin")
   {
     this.AdminRole=true;
     console.log("Admin if"+ this.AdminRole);
