@@ -1,5 +1,16 @@
 let express= require('express');
 let app = express();
+var nodemailer = require("nodemailer");
+
+var smtpTransport = nodemailer.createTransport({
+    service: "gmail",
+    host: "smtp.gmail.com",
+    auth: {
+        user: "",
+        pass: ""
+    }
+});
+
 const path = require("path");
 let bodyparser = require("body-parser");
 app.use(bodyparser.urlencoded({extended: true}));

@@ -26,6 +26,7 @@
     "express": "^4.16.3",
     "mysql": "^2.15.0",
     "rxjs": "^5.5.6",
+    "nodemailer": "latest",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
@@ -46,6 +47,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
+     
     "typescript": "~2.5.3"
   }
 }
