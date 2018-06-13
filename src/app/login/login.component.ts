@@ -41,10 +41,11 @@ export class LoginComponent implements OnInit {
 
     this.loginData.getAll(username,password).subscribe(res => {
       
-    this.members =res;
-    console.log(this.members[0].Firstname);
-    console.log(" returned Inside component getAllFunction");
-     console.log(res[0].Username);
+           if(res[0].status == "1")
+           {
+           this.router.navigate(['dashboard']);
+
+           }
       
   //    for(var i = 0;; i++){
   //    // console.log(this.members[i].role+"   "+"role");
