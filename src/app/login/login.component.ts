@@ -34,34 +34,24 @@ export class LoginComponent implements OnInit {
   }
 
 
-  loginUsers(username,password,role){
+  loginUsers(email,password){
 
     console.log("Inside component getAllFunction");
-    console.log(role);
 
-    this.loginData.getAll(username,password).subscribe(res => {
+    this.loginData.getAll(email,password).subscribe(res => {
       
     this.members =res;
-    console.log(this.members[0].Firstname);
-    console.log(" returned Inside component getAllFunction");
-     console.log(res[0].Username);
-      
-  //    for(var i = 0;; i++){
-  //    // console.log(this.members[i].role+"   "+"role");
-  //     console.log(this.members[i].Username+"   "+"username");
-  //      if(this.members[i].Username == username && this.members[i].Password == password && this.members[i].Role== role)
-  //      {
-  //       // this.u.username=username;
-  //       console.log("if Conditional.");
-  //       this.auth.setLogedIn();
-  //       console.log("set: "+this.auth.getLoggedIn());
-  //       sessionStorage.setItem("value","true");
-  //       localStorage.setItem("name",this.members[i].Firstname);
-  //       localStorage.setItem("Role",this.members[i].Role);
-  //       console.log("before dashboard");
-  //             this.router.navigate(['dashboard']);
-  //             break;
-  //      }
+
+    console.log(" returned Inside  component getAllFunction");
+        this.auth.setLogedIn();
+        console.log("set: "+this.auth.getLoggedIn());
+        // sessionStorage.setItem("value","true");
+      //   localStorage.setItem("name",this.members[i].Firstname);
+      //   localStorage.setItem("Role",this.members[i].Role);
+      //   console.log("before dashboard");
+      //         this.router.navigate(['dashboard']);
+      //         break;
+      //  }
       
   //  }
     });
@@ -89,12 +79,12 @@ export class LoginComponent implements OnInit {
   // }
 
   onSubmit(x: NgForm){
-    console.log("submit"+x.value.uname);
+    console.log("submit "+x.value.email);
     // this.members.username = x.value.uname;
     // this.members.password=x.value.psw;
-     console.log("password"+x.value.psw);
+     console.log("password "+x.value.psw);
     // this.loginData.addData(this.members.username,this.members.password);
-     this.loginUsers( x.value.uname,x.value.psw,x.value.role);
+     this.loginUsers( x.value.email,x.value.psw);
 
 //     if( x.value.uname == 'admin' && x.value.psw == 'admin')  
 // {

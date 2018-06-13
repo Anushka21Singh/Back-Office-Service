@@ -2,26 +2,25 @@ let express= require('express');
 let app = express();
 var con=require('./db_exp_connection');
 var login = require('./login');
-
-
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 console.log("inside login.js");
 app.get("/getAll",(req,res)=>
 {
     console.log("inside login.js getAll");
-    let username = req.query.username;
+    let email = req.query.email;
     let password = req.query.password;
-    let sql ="select * from admin where Email = '"+username+"' && Password = '"+password+"'";
-    let query = con.query(sql,(err,result)=>
+    console.log(email);
+    console.log(password);
+    let sql ="select * from admin where Email = '"+email+"'";
+    let query = con.query(sql,(err,result)=> 
 {
     if(err) throw err;
-
+    console.log(result[0].Password);
+    let ans = bcrypt.compareSync(password, result[0].Password);
+    console.log(ans);
     console.log("gotch yaa !!");
-    //res.send("got the post...!!");
-    var got=result.Username;
-      console.log(got);
-
-    //res.send("Username"+ got);
     console.log(result);
     //console.log("username"+result.username);
     res.json(result);
