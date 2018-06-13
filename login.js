@@ -9,8 +9,9 @@ console.log("inside login.js");
 app.get("/getAll",(req,res)=>
 {
     console.log("inside login.js getAll");
-
-    let sql ="select * from users";
+    let username = req.query.username;
+    let password = req.query.password;
+    let sql ="select * from admin where Email = '"+username+"' && Password = '"+password+"'";
     let query = con.query(sql,(err,result)=>
 {
     if(err) throw err;

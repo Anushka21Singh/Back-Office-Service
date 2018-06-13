@@ -29,50 +29,55 @@ export class LoginComponent implements OnInit {
     console.log("Inside Init");
   }
 
+  onValidation(){
 
-  loginUsers(username,password,role) {
+  }
+
+
+  loginUsers(username,password,role){
+
     console.log("Inside component getAllFunction");
     console.log(role);
 
-    this.loginData.getAll().subscribe(res => {
+    this.loginData.getAll(username,password).subscribe(res => {
       
     this.members =res;
     console.log(this.members[0].Firstname);
     console.log(" returned Inside component getAllFunction");
      console.log(res[0].Username);
       
-     for(var i = 0;; i++){
-     // console.log(this.members[i].role+"   "+"role");
-      console.log(this.members[i].Username+"   "+"username");
-       if(this.members[i].Username == username && this.members[i].Password == password && this.members[i].Role== role)
-       {
-        // this.u.username=username;
-        console.log("if Conditional.");
-        this.auth.setLogedIn();
-        console.log("set: "+this.auth.getLoggedIn());
-        sessionStorage.setItem("value","true");
-        localStorage.setItem("name",this.members[i].Firstname);
-        localStorage.setItem("Role",this.members[i].Role);
-        console.log("before dashboard");
-              this.router.navigate(['dashboard']);
-              break;
-       }
+  //    for(var i = 0;; i++){
+  //    // console.log(this.members[i].role+"   "+"role");
+  //     console.log(this.members[i].Username+"   "+"username");
+  //      if(this.members[i].Username == username && this.members[i].Password == password && this.members[i].Role== role)
+  //      {
+  //       // this.u.username=username;
+  //       console.log("if Conditional.");
+  //       this.auth.setLogedIn();
+  //       console.log("set: "+this.auth.getLoggedIn());
+  //       sessionStorage.setItem("value","true");
+  //       localStorage.setItem("name",this.members[i].Firstname);
+  //       localStorage.setItem("Role",this.members[i].Role);
+  //       console.log("before dashboard");
+  //             this.router.navigate(['dashboard']);
+  //             break;
+  //      }
       
-   }
+  //  }
     });
   }
   
 
-  getAll() {
-    console.log("Inside component getAllFunction");
+  // getAll() {
+  //   console.log("Inside component getAllFunction");
    
-    this.loginData.getAll().subscribe(res => {
-    this.members = res;
-    console.log(res);
-    console.log(" returned Inside  component getAllFunction");
-     console.log(this.members[0].username);
-    });
-  }
+  //   this.loginData.getAll().subscribe(res => {
+  //   this.members = res;
+  //   console.log(res);
+  //   console.log(" returned Inside  component getAllFunction");
+  //    console.log(this.members[0].username);
+  //   });
+  // }
 
   // onSubmit(userN : String , passW : String)
   // {
