@@ -42,6 +42,7 @@ public AdminRole=false;;  public OperatorRole = false;
     console.log("Admin if"+ this.AdminRole);
   }
   else
+  if(role == "Operator")
   {
     this.OperatorRole=true;
     console.log("Operator if"+ this.OperatorRole);
