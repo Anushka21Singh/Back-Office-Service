@@ -13,17 +13,22 @@ app.get("/getAll",(req,res)=>
     let password = req.query.password;
     console.log(email);
     console.log(password);
-    let sql ="select * from admin where Email = '"+email+"'";
+    let sql ="select Email,Password from admin where Email = '"+email+"'";
     let query = con.query(sql,(err,result)=> 
 {
     if(err) throw err;
     console.log(result[0].Password);
     let ans = bcrypt.compareSync(password, result[0].Password);
     console.log(ans);
-    console.log("gotch yaa !!");
-    console.log(result);
-    //console.log("username"+result.username);
-    res.json(result);
+    result[0].Password = "null";
+    if(ans){
+        result[0].status = "1";
+        res.json(result);
+    }
+    else{
+        result[0].status = "0";
+        res.json(result);
+    }
 });
 });
 

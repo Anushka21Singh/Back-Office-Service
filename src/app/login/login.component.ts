@@ -39,21 +39,14 @@ export class LoginComponent implements OnInit {
     console.log("Inside component getAllFunction");
 
     this.loginData.getAll(email,password).subscribe(res => {
-      
-    this.members =res;
 
-    console.log(" returned Inside  component getAllFunction");
-        this.auth.setLogedIn();
-        console.log("set: "+this.auth.getLoggedIn());
-        // sessionStorage.setItem("value","true");
-      //   localStorage.setItem("name",this.members[i].Firstname);
-      //   localStorage.setItem("Role",this.members[i].Role);
-      //   console.log("before dashboard");
-      //         this.router.navigate(['dashboard']);
-      //         break;
-      //  }
-      
-  //  }
+      if(res[0].status == "1"){
+        sessionStorage.setItem("value","true");
+        // localStorage.setItem("name",this.members[i].Firstname);
+        // localStorage.setItem("Role",this.members[i].Role);
+        console.log("before dashboard");
+              this.router.navigate(['dashboard']);
+       }
     });
   }
   
