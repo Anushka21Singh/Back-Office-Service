@@ -19,7 +19,6 @@ app.post('/adduserV',(req,res)=>
 host=req.get('host');
     link="http://"+req.get('host')+"/dashboard/adduseremailverification/verify?id="+rand;
     var mailOptions={
-        // from: 'anushka211997@gmail.com',
         to : req.body.email,
         subject: 'Email Verification - Finlok',
         text : 'hello',
