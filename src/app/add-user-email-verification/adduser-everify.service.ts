@@ -18,12 +18,12 @@ export class AdduserEverifyService {
       // show an alert to tell the user if product was created or not
       alert("Data Added Successfully");
       this.Route.navigate(['dashboard']);
-
+          
    },
    error => console.log(error)
   )
   console.log({'name':name});
-}
+} 
   
 
 }

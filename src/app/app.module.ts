@@ -14,11 +14,14 @@ import { DashboardService } from './dashboard/dashboard.service';
 import { AddUserEmailVerificationComponent } from './add-user-email-verification/add-user-email-verification.component';
 import { AdduserEverifyService } from './add-user-email-verification/adduser-everify.service';
 import { UserComponent } from './user/user.component';
+import { UserService } from './user/user.service';
 //import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard/adduseremailverification', component: AddUserEmailVerificationComponent },
+  { path: 'dashboard/user', component: UserComponent },
+
   { path: 'dashboard', canActivate: [AuthGuard],component: DashboardComponent },
 { path: '',
     redirectTo: '/',
@@ -40,7 +43,8 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule
   ],
-  providers: [LoginServiceService , AuthGuard,AuthService, DashboardService, AdduserEverifyService],
+  providers: [LoginServiceService , AuthGuard,AuthService, DashboardService, AdduserEverifyService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+  
