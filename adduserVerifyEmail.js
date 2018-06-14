@@ -9,8 +9,8 @@ var smtpTransport = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
     auth: {
-        user: "anushka211997@gmail.com",
-        pass:"" 
+        user: "",
+        pass: "" 
     }
 });
 
@@ -19,9 +19,9 @@ app.post('/adduserV',(req,res)=>
 host=req.get('host');
     link="http://"+req.get('host')+"/dashboard/adduseremailverification/verify?id="+rand;
     var mailOptions={
-        from: 'anushka211997@gmail.com',
+        // from: 'anushka211997@gmail.com',
         to : req.body.email,
-        subject: 'jdfjkf',
+        subject: 'Email Verification - Finlok',
         text : 'hello',
         html: "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>"
      }
