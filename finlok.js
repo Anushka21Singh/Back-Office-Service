@@ -25,8 +25,11 @@ app.use('/login',login);
 var dashboard = require('./dashboard');
 app.use('/dashboard',dashboard);
 
+var adduserVerifyEmail = require('./adduserVerifyEmail');
+app.use('/dashboard/adduseremailverification',adduserVerifyEmail);
+
 app.listen( 2020,function () {  
-    
+     
     console.log('Example app listening ')  
     });
 

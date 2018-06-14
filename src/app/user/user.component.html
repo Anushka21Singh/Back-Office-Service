@@ -1,0 +1,32 @@
+<form  (ngSubmit)="UserV(y)" #y="ngForm">
+  <div class="form-group"> 
+
+    <label for="Fname"><b>Firstname</b></label>
+    <input  id = "fname" ngModel #Fname class="form-control" type="text"  name="Fname" required>
+</div>
+
+<div class="form-group"> 
+
+  <label for="Lname"><b>Lastname</b></label>
+  <input id = "lname" ngModel #Lname class="form-control" type="text"  name="Lname" required>
+</div>
+
+<div class="form-group"> 
+
+  <label for="Role"><b>Password</b></label>
+  <input id = "pasw" ngModel #pasw class="form-control" type="text"  name="pasw" required>
+</div>
+<div class="form-group"> 
+
+  <label for="Role"><b>Confirm Password</b></label>
+  <input id = "cpsw" ngModel #cpasw class="form-control" type="text"  name="cpasw" required>
+</div>
+
+    <div class="form-group text-center">
+
+    <button id="submit" class="btn btn-primary"  type="submit">Submit</button>
+    </div>
+
+    <span id="message"></span>
+
+</form>

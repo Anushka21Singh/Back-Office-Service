@@ -11,10 +11,14 @@ import { AuthGuard } from './auth.guard';
 //import { StorageServiceModule } from 'angular-webstorage-service';
 import { AuthService } from './auth.service';
 import { DashboardService } from './dashboard/dashboard.service';
+import { AddUserEmailVerificationComponent } from './add-user-email-verification/add-user-email-verification.component';
+import { AdduserEverifyService } from './add-user-email-verification/adduser-everify.service';
+import { UserComponent } from './user/user.component';
 //import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'dashboard/adduseremailverification', component: AddUserEmailVerificationComponent },
   { path: 'dashboard', canActivate: [AuthGuard],component: DashboardComponent },
 { path: '',
     redirectTo: '/',
@@ -26,7 +30,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddUserEmailVerificationComponent,
+    UserComponent
   ],
   imports: [ 
     BrowserModule,
@@ -34,7 +40,7 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule
   ],
-  providers: [LoginServiceService , AuthGuard,AuthService, DashboardService],
+  providers: [LoginServiceService , AuthGuard,AuthService, DashboardService, AdduserEverifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

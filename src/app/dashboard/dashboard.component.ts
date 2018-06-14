@@ -25,10 +25,11 @@ public AdminRole=false;;  public OperatorRole = false;
   constructor(private auth:AuthService, private Route:Router, private dashboard: DashboardService) { 
     this.OperatorRole=false;
     this.AdminRole=false;
-    const name= localStorage.getItem("name");
+    // const name= localStorage.getItem("name");
     const role= localStorage.getItem("Role");
     this.initialF(role);
-    console.log("inside dashboard"+name+role);
+     console.log("inside dashboard"+role);
+    console.log("inside dashboard");
   } 
 
   ngOnInit() {
@@ -36,7 +37,7 @@ public AdminRole=false;;  public OperatorRole = false;
   }
   initialF(role)
   {
-  if(role=="admin")
+  if(role=="Admin")
   {
     this.AdminRole=true;
     console.log("Admin if"+ this.AdminRole);

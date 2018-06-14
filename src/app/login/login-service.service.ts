@@ -10,18 +10,15 @@ import { AuthService } from '../auth.service';
 
 @Injectable()
 export class LoginServiceService {
-
-
-  
   constructor(private _http : Http, private auth: AuthService) { 
     console.log("inside service login constructor");
   
   }
     
 
-  getAll(username,password){
+  getAll(email,password){
     let params: URLSearchParams = new URLSearchParams();
-    params.set("username", username);
+    params.set("email", email);
     params.set("password", password);
     let requestOptions = new RequestOptions();
     requestOptions.search = params;
